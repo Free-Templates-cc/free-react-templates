@@ -40,82 +40,104 @@ Extracted from the preview CSS (css/style.css + Bootstrap):
 - **Dropdown link:** color #888, font-size 14px, padding 4px 7px
 - **Background:** white (default body)
 
-## Gherkin Requirements
+## Requirements
 
-### Feature: Dropcall Two-Column Dropdown
+### Requirement: Dropdown renders with button and toggle behavior
 
-The dropdown component must recreate the ColorLib Dropdown 12 snippet — a wide
-two-column dropdown with icon-labeled items.
+The dropdown component SHALL render a button that toggles a wide two-column menu.
 
 #### Scenario: Renders the dropdown button
-- Given the page loads
-- Then a button labeled "Privacy Settings" is visible
-- And the button has a cog icon to the left of the label
+
+- **WHEN** the page loads
+- **THEN** a button labeled "Privacy Settings" is visible
+- **AND** the button has a cog icon to the left of the label
 
 #### Scenario: Dropdown menu is hidden by default
-- Given the page loads
-- Then the dropdown menu is not visible
+
+- **WHEN** the page loads
+- **THEN** the dropdown menu is not visible
 
 #### Scenario: Opens wide two-column menu on click
-- Given the page loads
-- When the user clicks the "Privacy Settings" button
-- Then the dropdown menu becomes visible
-- And the menu has two columns side by side
 
-#### Scenario: Menu contains correct items
-- Given the dropdown menu is open
-- Then column 1 contains "Settings" with a cog icon and description
-- And column 1 contains "Account" with a person icon and description
-- And column 2 contains "Settings" with a cog icon and description
-- And column 2 contains "Notification" with a person icon and description
-
-#### Scenario: Items have purple icons
-- Given the dropdown menu is open
-- Then all menu item icons are colored #c3a1fa (light purple)
-
-#### Scenario: Items have descriptions
-- Given the dropdown menu is open
-- Then each menu item shows a title (bold, 16px, black)
-- And each menu item shows a description paragraph (14px, #b3b3b3)
-
-#### Scenario: Items separated by borders
-- Given the dropdown menu is open
-- Then each item in a column has a bottom border (#efefef)
-- And the last item in each column has no bottom border
-
-#### Scenario: Menu is horizontally centered
-- Given the dropdown menu opens
-- Then the menu is centered horizontally under the button
-
-#### Scenario: Menu animation
-- Given the dropdown menu opens
-- Then the menu fades in with opacity transition (0.3s)
-- And the menu slides down with margin-top transition (40px → 50px)
+- **WHEN** the user clicks the "Privacy Settings" button
+- **THEN** the dropdown menu becomes visible
+- **AND** the menu has two columns side by side
 
 #### Scenario: Closes menu on second click
-- Given the dropdown menu is open
-- When the user clicks the "Privacy Settings" button again
-- Then the dropdown menu becomes hidden
+
+- **WHEN** the user clicks the "Privacy Settings" button while the menu is open
+- **THEN** the dropdown menu becomes hidden
 
 #### Scenario: Closes on outside click
-- Given the dropdown menu is open
-- When the user clicks outside the dropdown
-- Then the dropdown menu becomes hidden
+
+- **WHEN** the user clicks outside the dropdown while the menu is open
+- **THEN** the dropdown menu becomes hidden
+
+### Requirement: Menu items are correctly structured
+
+The dropdown menu SHALL display four items across two columns with purple icons, bold titles, descriptions, and separating borders.
+
+#### Scenario: Menu contains correct items
+
+- **WHEN** the dropdown menu is open
+- **THEN** column 1 contains "Settings" with a cog icon and description
+- **AND** column 1 contains "Account" with a person icon and description
+- **AND** column 2 contains "Settings" with a cog icon and description
+- **AND** column 2 contains "Notification" with a person icon and description
+
+#### Scenario: Items have purple icons
+
+- **WHEN** the dropdown menu is open
+- **THEN** all menu item icons are colored #c3a1fa (light purple)
+
+#### Scenario: Items have descriptions
+
+- **WHEN** the dropdown menu is open
+- **THEN** each menu item shows a title (bold, 16px, black)
+- **AND** each menu item shows a description paragraph (14px, #b3b3b3)
+
+#### Scenario: Items separated by borders
+
+- **WHEN** the dropdown menu is open
+- **THEN** each item in a column has a bottom border (#efefef)
+- **AND** the last item in each column has no bottom border
+
+### Requirement: Menu is styled and animated
+
+The dropdown menu SHALL be horizontally centered under the button and animate in with opacity and margin transitions.
+
+#### Scenario: Menu is horizontally centered
+
+- **WHEN** the dropdown menu opens
+- **THEN** the menu is centered horizontally under the button
+
+#### Scenario: Menu animation
+
+- **WHEN** the dropdown menu opens
+- **THEN** the menu fades in with opacity transition (0.3s)
+- **AND** the menu slides down with margin-top transition (40px to 50px)
+
+### Requirement: Accessibility and footer
+
+The dropdown SHALL use proper ARIA attributes and the page SHALL include a footer linking to Component Dock.
 
 #### Scenario: Accessibility
-- Given the dropdown button renders
-- Then the button has aria-haspopup="true"
-- And the button has aria-expanded="false" when closed
-- And the button has aria-expanded="true" when open
+
+- **WHEN** the dropdown button renders
+- **THEN** the button has aria-haspopup="true"
+- **AND** the button has aria-expanded="false" when closed
+- **AND** the button has aria-expanded="true" when open
 
 #### Scenario: Footer with Component Dock link
-- Given the page renders
-- Then a footer is visible
-- And the footer contains a link to "https://www.componentdock.com/"
+
+- **WHEN** the page renders
+- **THEN** a footer is visible
+- **AND** the footer contains a link to "https://www.componentdock.com/"
 
 #### Scenario: Heading displays correctly
-- Given the page loads
-- Then a centered heading "Dropdown #2" is visible
+
+- **WHEN** the page loads
+- **THEN** a centered heading "Dropdown #2" is visible
 
 ## Verification Checklist
 
